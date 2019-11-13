@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+pyyaml = "*"
+gitpython = "*"
+pytest = "*"
+pytest-mock = "*"
+mock = "*"
+flask-caching = "*"
+healthcheck = "*"
+markdown = "*"
+beautifulsoup4 = "*"
+jinja2 = "*"
+pytest-cov = "*"
+flake8 = "*"
+
+[dev-packages]
+pytest = "*"
+webapp = {editable = true,path = "."}
+
+[requires]
+python_version = "3.7"

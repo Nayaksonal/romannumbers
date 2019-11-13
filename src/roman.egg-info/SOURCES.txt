@@ -1,0 +1,5 @@
+setup.py
+src/roman.egg-info/PKG-INFO
+src/roman.egg-info/SOURCES.txt
+src/roman.egg-info/dependency_links.txt
+src/roman.egg-info/top_level.txt
