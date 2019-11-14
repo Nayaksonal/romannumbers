@@ -1,31 +1,37 @@
-from src.roman_convertor_mod import calculate_number
+from src.roman_convertor_mod import top_level_calc
 
 
-def test_valid_combination_prior_valid_XL():
+def test_valid_combination_prior_valid_XL(capsys):
     input_str = 'CXL'
-    return_value = calculate_number(input_str)
-    assert return_value == 140
+    top_level_calc(input_str)
+    captured = capsys.readouterr()
+    print(captured.out)
+    assert f'numerical value : 140' in captured.out
 
 
-def test_valid_combination_prior_invalid_XL():
+def test_valid_combination_prior_invalid_XL(capsys):
     input_str = 'IXL'
-    return_value = calculate_number(input_str)
-    assert return_value == 'Invalid'
+    top_level_calc(input_str)
+    captured = capsys.readouterr()
+    assert f'roman input IXL is Invalid' in captured.out
 
 
-def test_valid_combination_prior_invalid2_XL():
+def test_valid_combination_prior_invalid2_XL(capsys):
     input_str = 'XXL'
-    return_value = calculate_number(input_str)
-    assert return_value == 'Invalid'
+    top_level_calc(input_str)
+    captured = capsys.readouterr()
+    assert f'roman input XXL is Invalid' in captured.out
 
 
-def test_valid_combination_prior_invalid_XC():
+def test_valid_combination_prior_invalid_XC(capsys):
     input_str = 'IXC'
-    return_value = calculate_number(input_str)
-    assert return_value == 'Invalid'
+    top_level_calc(input_str)
+    captured = capsys.readouterr()
+    assert f'roman input IXC is Invalid' in captured.out
 
 
-def test_valid_combination_prior_valid_XC():
+def test_valid_combination_prior_valid_XC(capsys):
     input_str = 'DXL'
-    return_value = calculate_number(input_str)
-    assert return_value == 540
+    top_level_calc(input_str)
+    captured = capsys.readouterr()
+    assert f'numerical value : 540' in captured.out
