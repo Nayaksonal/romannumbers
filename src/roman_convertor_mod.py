@@ -1,5 +1,5 @@
 import argparse
-# import sys
+import sys
 
 roman_dict = {
     "I":
@@ -39,14 +39,34 @@ def process_args():
 def main():
     # roman_input = "CLMXVI"
     args = process_args()
-    roman_input = args.RomanNumeral[0]
-    top_level_calc(roman_input)
+    roman_input_list = args.RomanNumeral
+    #
+    summation_roman_numerals(roman_input_list)
+
+
+def summation_roman_numerals(roman_input_list: list):
+    result_list = []
+    for roman_input in roman_input_list:
+        return_value = top_level_calc(roman_input)
+        result_list.append(return_value)
+
+    total = 0
+    print(result_list)
+    for result in result_list:
+        if result == 'Invalid' or result is None:
+            print(f'Cannot calculate Sum over Invalid Roman numeral')
+            sys.exit(1)
+        else:
+            total = total + result
+    print(f'Total : {total}')
 
 
 def top_level_calc(roman_input):
     if _check_repeating_letters(roman_input) == 'Valid':
         return_value = _calculate_number(roman_input)
-        print(f'numerical value : {return_value}')
+        print(f'numerical value for {roman_input} : {return_value}')
+
+        return return_value
 
 
 def _calculate_number(roman_input: str):
