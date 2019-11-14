@@ -6,7 +6,7 @@ def test_valid_combination_valid(capsys):
     top_level_calc(input_str)
     captured = capsys.readouterr()
     print(captured.out)
-    assert f'numerical value : 41' in captured.out
+    assert f'numerical value for XLI : 41' in captured.out
 
 
 def test_valid_combination_next_invalid(capsys):
@@ -30,7 +30,7 @@ def test_valid_combination_next_multiple_valid(capsys):
     top_level_calc(input_str)
     captured = capsys.readouterr()
     print(captured.out)
-    assert f'numerical value : 49' in captured.out
+    assert f'numerical value for XLIX : 49' in captured.out
 
 
 def test_valid_combination_next_invalid_XC(capsys):
@@ -44,4 +44,4 @@ def test_valid_combination_next_valid_XC(capsys):
     input_str = 'XCI'
     top_level_calc(input_str)
     captured = capsys.readouterr()
-    assert f'numerical value : 91' in captured.out
+    assert f'numerical value for XCI : 91' in captured.out

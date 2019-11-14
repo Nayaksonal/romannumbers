@@ -6,7 +6,7 @@ def test_valid_combination_prior_valid_XL(capsys):
     top_level_calc(input_str)
     captured = capsys.readouterr()
     print(captured.out)
-    assert f'numerical value : 140' in captured.out
+    assert f'numerical value for CXL : 140' in captured.out
 
 
 def test_valid_combination_prior_invalid_XL(capsys):
@@ -34,4 +34,4 @@ def test_valid_combination_prior_valid_XC(capsys):
     input_str = 'DXL'
     top_level_calc(input_str)
     captured = capsys.readouterr()
-    assert f'numerical value : 540' in captured.out
+    assert f'numerical value for DXL : 540' in captured.out

@@ -14,7 +14,32 @@ def test_main(capsys, mocker):
     process_args_mocker.return_value = roman_input
     main()
     captured = capsys.readouterr()
-    assert f'numerical value : {4}' in captured.out
+    print(captured.out)
+    assert f'numerical value for IV : 4' in captured.out
+    assert f'Total : 4' in captured.out
+
+
+def test_main_multiple_values(capsys, mocker):
+    roman_input = mock_arguments(['IV', 'IV'])
+    process_args_mocker = mocker.patch('src.roman_convertor_mod.process_args')
+    process_args_mocker.return_value = roman_input
+    main()
+    captured = capsys.readouterr()
+    print(captured.out)
+    assert f'numerical value for IV : 4' in captured.out
+    assert f'Total : 8' in captured.out
+
+
+def test_main_invalid_values(capsys, mocker):
+    roman_input = mock_arguments(['IV', 'VV'])
+    process_args_mocker = mocker.patch('src.roman_convertor_mod.process_args')
+    _ = mocker.patch('sys.exit')
+    process_args_mocker.return_value = roman_input
+    main()
+    captured = capsys.readouterr()
+    print(captured.out)
+    assert f'numerical value for IV : 4' in captured.out
+    assert f'Cannot calculate Sum over Invalid Roman numeral' in captured.out
 
 
 def test_parse_args(mocker):
