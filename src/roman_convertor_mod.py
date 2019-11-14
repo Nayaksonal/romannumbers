@@ -49,7 +49,6 @@ def top_level_calc(roman_input):
         print(f'numerical value : {return_value}')
 
 
-
 def _calculate_number(roman_input: str):
 
     valid_combination = ['IV', 'IX', 'XL', 'XC', 'CD', 'CM']
