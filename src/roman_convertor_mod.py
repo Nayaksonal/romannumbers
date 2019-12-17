@@ -1,5 +1,6 @@
 import argparse
 import sys
+from src.number_to_roman import convert_number_roman
 
 roman_dict = {
     "I":
@@ -51,14 +52,15 @@ def summation_roman_numerals(roman_input_list: list):
         result_list.append(return_value)
 
     total = 0
-    print(result_list)
     for result in result_list:
         if result == 'Invalid' or result is None:
             print(f'Cannot calculate Sum over Invalid Roman numeral')
             sys.exit(1)
         else:
             total = total + result
-    print(f'Total : {total}')
+    print(f'Total : {total} : Romannumeral: {convert_number_roman(total)}')
+
+
 
 
 def top_level_calc(roman_input):
@@ -74,15 +76,12 @@ def _calculate_number(roman_input: str):
     valid_combination = ['IV', 'IX', 'XL', 'XC', 'CD', 'CM']
     sum = 0
     len1 = len(roman_input)
-    print(f'length : {len1}')
     for i, letter in enumerate(roman_input):
         letter_value = roman_dict.get(letter).get("value")
-        # print(f'letter :{i} {letter}')
         if i >= len1-1:
             temp = letter_value
         else:
             next_letter = roman_input[i+1]
-            # print(f'next letter : {next_letter}')
             letter_position = roman_dict[letter]['position']
             next_letter_position = roman_dict[next_letter]['position']
             if letter_position < next_letter_position:
@@ -93,7 +92,6 @@ def _calculate_number(roman_input: str):
                 else:
                     if i != 0:
                         earlier_letter = roman_input[i-1]
-                        print(f'earlier letter at {i-1} : {earlier_letter}')
                         earlier_letter_position =\
                             roman_dict[earlier_letter]['position']
                         earlier_letter_value = \
@@ -124,7 +122,6 @@ def _check_repeating_letters(roman_input):
     cnt = 0
     len1 = len(roman_input)
     for i, letter in enumerate(roman_input):
-        # print(f'for i: {i} value of cnt {cnt}')
         if i+1 < len1 and letter == roman_input[i+1]:
             if letter in non_repeatable_letters:
                 print(f'roman input {roman_input} is Invalid')
